@@ -1,0 +1,246 @@
+/* =============================================
+   Paleta 1 (Principal - Oceano & Fogo)
+   Fundo: #F8FAFC, Texto: #0F172A, CTA: #EA580C, Apoio: #64748B
+   ============================================= */
+:root {
+  --bg-body: #F8FAFC;
+  --text-primary: #0F172A;
+  --accent: #EA580C;
+  --accent-hover: #D4520A;
+  --muted: #64748B;
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0;
+  --form-bg: #FFFFFF;
+  --hero-bg: #0F172A;
+}
+
+/* Paleta 2 (Regional Premium) */
+[data-palette="regional"] {
+  --bg-body: #FDF8F5;
+  --text-primary: #134E4A;
+  --accent: #E17055;
+  --accent-hover: #D15F45;
+  --muted: #7A8A8A;
+  --card-bg: #FFFFFF;
+  --card-border: #E8DDD5;
+  --hero-bg: #134E4A;
+}
+
+/* Paleta 3 (Minimalista) */
+[data-palette="minimal"] {
+  --bg-body: #FFFFFF;
+  --text-primary: #18181B;
+  --accent: #FF6B6B;
+  --accent-hover: #E85A5A;
+  --muted: #71717A;
+  --card-bg: #FFFFFF;
+  --card-border: #E4E4E7;
+  --hero-bg: #18181B;
+}
+
+/* =============================================
+   Tailwind Directives (via CDN)
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-accent { color: var(--accent); }
+.text-muted { color: var(--muted); }
+.bg-accent { background-color: var(--accent); }
+.bg-accent\/5 { background-color: color-mix(in srgb, var(--accent) 5%, transparent); }
+.bg-accent\/10 { background-color: color-mix(in srgb, var(--accent) 10%, transparent); }
+.bg-muted\/5 { background-color: color-mix(in srgb, var(--muted) 5%, transparent); }
+.border-accent { border-color: var(--accent); }
+
+/* =============================================
+   Hero Section
+   ============================================= */
+#hero {
+  background-color: var(--hero-bg);
+  min-height: 90vh;
+}
+
+.hero-bg {
+  background-image: url('https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');
+  background-position: center 40%;
+  opacity: 0.3;
+}
+
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.70) 100%);
+}
+
+/* =============================================
+   Form Card
+   ============================================= */
+.form-card {
+  background: var(--form-bg);
+  border: 1px solid var(--card-border);
+}
+
+.form-card input,
+.form-card select {
+  background: var(--bg-body);
+  border-color: var(--card-border);
+  color: var(--text-primary);
+}
+
+.form-card input::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #FFFFFF;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.btn-primary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* =============================================
+   Benefit Cards
+   ============================================= */
+.benefit-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.icon-circle {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.benefit-card:hover .icon-circle {
+  background-color: var(--accent) !important;
+  color: #FFFFFF !important;
+}
+
+/* =============================================
+   Testimonial Cards
+   ============================================= */
+.testimonial-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+}
+
+/* =============================================
+   FAQ Accordion
+   ============================================= */
+.faq-item {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+}
+
+.faq-question {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.faq-question:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+
+.faq-item.active .faq-question {
+  color: var(--accent);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+}
+
+/* =============================================
+   Animations
+   ============================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pillFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#hero .pill:nth-child(1) { animation: pillFadeIn 0.5s ease 0.3s both; }
+#hero .pill:nth-child(2) { animation: pillFadeIn 0.5s ease 0.5s both; }
+#hero .pill:nth-child(3) { animation: pillFadeIn 0.5s ease 0.7s both; }
+
+.form-card {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+#hero h1 {
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+#hero p {
+  animation: fadeInUp 0.6s ease 0.15s both;
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+@media (max-width: 640px) {
+  #hero {
+    min-height: auto;
+  }
+
+  .hero-bg {
+    opacity: 0.2;
+  }
+
+  .btn-primary {
+    font-size: 1rem;
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+  }
+}
